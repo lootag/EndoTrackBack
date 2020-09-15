@@ -1,0 +1,6 @@
+{
+    "endoscopesTrackingDatabase" :
+    {
+        "connectionString" : "Server=tcp:wassenburgdemo.database.windows.net,1433;Initial Catalog=endoscopestracking;Persist Security Info=False;User ID=lootag;Password=Cremma5963;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    }
+}
