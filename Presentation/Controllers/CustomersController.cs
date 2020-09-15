@@ -21,8 +21,6 @@ namespace Presentation.Controllers
 
         public CustomersController(ILogger<CustomersController> logger,
                               ICustomerRepository customerRepository,
-                              IMachineRepository machineRepository,
-                              IProcessRepository processRepository, 
                               IConfiguration configuration)
         {
             _logger = logger;
