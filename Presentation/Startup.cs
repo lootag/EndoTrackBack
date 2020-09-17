@@ -31,10 +31,10 @@ namespace Presentation
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddSingleton<IContextFactory>(factory => new ContextFactory(factory.GetService<IConfiguration>().GetSection("EndoscopesTrackingDatabase").GetSection("ConnectionString").Value));
-            services.AddSingleton<ICustomerRepository>(repository => new CustomerRepository(repository.GetService<IContextFactory>()));
-            services.AddSingleton<IMachineRepository>(repository => new MachineRepository(repository.GetService<IContextFactory>()));
-            services.AddSingleton<IProcessRepository>(repository => new ProcessRepository(repository.GetService<IContextFactory>()));
+            services.AddTransient<IContextFactory>(factory => new ContextFactory(factory.GetService<IConfiguration>().GetSection("EndoscopesTrackingDatabase").GetSection("ConnectionString").Value));
+            services.AddTransient<ICustomerRepository>(repository => new CustomerRepository(repository.GetService<IContextFactory>()));
+            services.AddTransient<IMachineRepository>(repository => new MachineRepository(repository.GetService<IContextFactory>()));
+            services.AddTransient<IProcessRepository>(repository => new ProcessRepository(repository.GetService<IContextFactory>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
