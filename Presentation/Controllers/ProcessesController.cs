@@ -53,7 +53,7 @@ namespace Presentation.Controllers
             try
             {
                 var process = this._processRepository.Get(id);
-                var dto = this.BusinessEntityToViewInfoEntity(process);
+                var dto = this.BusinessEntityToViewEntity(process);
                 return Ok(dto);
             }
             catch(Exception)
@@ -71,7 +71,7 @@ namespace Presentation.Controllers
             {
                 var processQuery = this.ViewQueryEntityToBusinessQueryEntity(dtoIn);
                 var processes = this._processRepository.GetByQueryValues(processQuery);
-                var dtoOut = this.BusinessEntityListToViewEntityList(processes);
+                var dtoOut = this.BusinessEntityListToViewInfoEntityList(processes);
                 return Ok(dtoOut);
             }
             catch(Exception)
