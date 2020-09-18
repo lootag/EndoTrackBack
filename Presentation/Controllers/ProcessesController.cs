@@ -53,7 +53,7 @@ namespace Presentation.Controllers
             try
             {
                 var process = this._processRepository.Get(id);
-                var dto = this.BusinessEntityToViewEntity(process);
+                var dto = this.BusinessEntityToViewInfoEntity(process);
                 return Ok(dto);
             }
             catch(Exception)
@@ -66,6 +66,7 @@ namespace Presentation.Controllers
         [Route("get-processes")]
         public IActionResult GetProcesses(ViewModels.ProcessQuery dtoIn)
         {
+            if(dtoIn == null) return BadRequest("The client passed a null process request");
             try
             {
                 var processQuery = this.ViewQueryEntityToBusinessQueryEntity(dtoIn);
