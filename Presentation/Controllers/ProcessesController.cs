@@ -156,8 +156,8 @@ namespace Presentation.Controllers
                                                    processQuery.DrainSensor,
                                                    processQuery.WaterLevelMlMin,
                                                    processQuery.WaterLevelMlMax,
-                                                   processQuery.MachineId,
-                                                   processQuery.CustomerId);
+                                                   processQuery.MachineIds,
+                                                   processQuery.CustomerIds);
         }
 
         

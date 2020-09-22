@@ -61,16 +61,16 @@ namespace Persistence.Repositories.Implementations
                                 .Include(p => p.Machine)
                                     .ThenInclude(m => m.Customer);
                 
-                if(processQueryValues.MachineId != null)
+                if(processQueryValues.MachineIds != null)
                 {
                     processQuery = processQuery
-                                    .Where(p => p.MachineId == processQueryValues.MachineId);
+                                    .Where(p => processQueryValues.MachineIds.Contains(p.MachineId));
                 }
 
-                if(processQueryValues.CustomerId != null)
+                if(processQueryValues.CustomerIds != null)
                 {
                     processQuery = processQuery
-                                    .Where(p => p.Machine.CustomerId == processQueryValues.CustomerId);
+                                    .Where(p => processQueryValues.CustomerIds.Contains(p.Machine.CustomerId));
                 }
 
                 if(processQueryValues.WaterTempMin != null && processQueryValues.WaterTempMax != null)

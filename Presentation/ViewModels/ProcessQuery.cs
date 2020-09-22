@@ -9,7 +9,7 @@ namespace Presentation.ViewModels
         public bool? DrainSensor { get; set; }
         public double? WaterLevelMlMin { get; set; }
         public double? WaterLevelMlMax { get; set; }
-        public long? MachineId { get; set; }
-        public long? CustomerId { get; set; }
+        public long[] MachineIds { get; set; }
+        public long[] CustomerIds { get; set; }
     }
 }

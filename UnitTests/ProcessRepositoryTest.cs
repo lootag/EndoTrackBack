@@ -557,7 +557,11 @@ namespace UnitTests
                 }
             }
 
-            var processQuery = new ProcessQuery(22, 26, false, true, false, 360, 390, machineId2.Value, customerId2);
+            long[] machineIds = new long[] {machineId2.Value};
+            long[] customerIds = new long[] {customerId2.Value};
+
+
+            var processQuery = new ProcessQuery(22, 26, false, true, false, 360, 390, machineIds, customerIds);
 
             //Act 
             var processRepository = new ProcessRepository(factory);
@@ -728,7 +732,8 @@ namespace UnitTests
                 }
             }
 
-            var processQuery = new ProcessQuery(null, null, null, null, null, null, null, null, customerId2);
+            long[] customerIds = new long[] {customerId2.Value};
+            var processQuery = new ProcessQuery(null, null, null, null, null, null, null, null, customerIds);
 
             //Act 
             var processRepository = new ProcessRepository(factory);
