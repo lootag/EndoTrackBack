@@ -32,9 +32,17 @@ namespace Presentation.Controllers
         [Route("get-all-customers")]
         public IActionResult GetAllCustomers()
         {
-            var customers = this._customerRepository.GetAll();
-            var dtos = this.BusinessEntityListToViewEntityList(customers);
-            return Ok(dtos);
+            try
+            {
+                var customers = this._customerRepository.GetAll();
+                var dtos = this.BusinessEntityListToViewEntityList(customers);
+                return Ok(dtos);
+            }
+            catch(Exception)
+            {
+                return StatusCode(500);
+            }
+            
         }
 
         private ViewModels.Customer BusinessEntityToViewEntity(Entities.Customer customer)

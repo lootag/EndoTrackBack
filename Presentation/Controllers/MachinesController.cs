@@ -32,9 +32,17 @@ namespace Presentation.Controllers
         [Route("get-all-machines")]
         public IActionResult GetAllMachines()
         {
-            var machines = this._machineRepository.GetAll();
-            var dtos = this.BusinessEntityListToViewEntityList(machines);
-            return Ok(dtos);
+            try
+            {
+                var machines = this._machineRepository.GetAll();
+                var dtos = this.BusinessEntityListToViewEntityList(machines);
+                return Ok(dtos);
+            }
+            catch(Exception)
+            {
+                return StatusCode(500);
+            }
+            
         }
 
         private ViewModels.Machine BusinessEntityToViewEntity(Entities.Machine machine)
